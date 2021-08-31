@@ -1,0 +1,6 @@
+class ExampleRepository @Inject constructor(
+    private val remoteDataSource: ExampleRemoteDataSource,
+    private val localDataSource: ExampleDao
+) {
+  /* ... */
+}
