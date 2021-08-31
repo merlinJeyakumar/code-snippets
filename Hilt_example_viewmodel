@@ -1,0 +1,3 @@
+class ExampleViewModel @ViewModelInject constructor(private val localDataRepository: LocalDataRepository) : ViewModel() {
+    /* foo */
+}
