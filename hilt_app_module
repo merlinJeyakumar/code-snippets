@@ -1,0 +1,18 @@
+@Module
+@InstallIn(ApplicationComponent::class)
+object AppModule {
+
+    @Provides
+    fun provideGson(): Gson = GsonBuilder().create() //i'm here to provide new gson instance
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder() //I'm here to provide static retrofit object. i am using provideGson() return object
+        .baseUrl("https://rickandmortyapi.com/api/")
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext) // I'm using appContext from Hilt
+}
