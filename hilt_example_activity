@@ -1,0 +1,7 @@
+class MainActivity : AppCompatActivity(){
+  private val viewModel: ExampleViewModel by viewModels()
+  
+  override onCreate(..){
+    //Foo
+  }
+}
